@@ -78,19 +78,12 @@ def build_model(X,y):
     ('clf', MultiOutputClassifier(estimator=RandomForestClassifier()))
     ])
     
-    #split the data into train & test dataset
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-    
-    #Train pipeline
-    pipeline.fit(X_train, y_train)
-    
     #create parameters for gridsearch
     parameters = {"clf__estimator__n_estimators":[100],
               "clf__estimator__min_samples_split":[2]}
     
     #Initialize the gridseachcv object 
     cv = GridSearchCV(pipeline, param_grid=parameters, n_jobs=4, verbose=2, cv=2)
-    cv.fit(X_train, y_train)
     return cv
 
 def evaluate_model(model, X_test, y_test, category_names):

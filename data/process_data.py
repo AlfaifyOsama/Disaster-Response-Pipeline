@@ -9,7 +9,12 @@ messages_filepath="/home/workspace/data/disaster_messages.csv"
 categories_filepath="/home/workspace/data/disaster_categories.csv"
 
 def load_data(messages_filepath, categories_filepath):
-	# load messages and categories datasets
+    '''
+    INPUT
+    file paths of the message and categories files in cvs format
+    OUTPUT
+    a dataframe contains both dataset
+    '''
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     
@@ -50,6 +55,12 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
+    '''
+    INPUT
+    cleaned dataframe and the filepath for the SQL database for saving the dataframe
+    OUTPUT
+    None
+    '''
     engine = create_engine('sqlite:///{}'.format(database_filename))
     df.to_sql('DisasterResponse', engine, index=False, if_exists='replace')
     
