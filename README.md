@@ -10,25 +10,19 @@ After building and training such a model, we can next launch a web service which
 ## File Description:
 - process_data.py: This python excutuble code takes as its input csv files containing message data and message categories (labels), and then creates a SQL database
 - train_classifier.py: This code trains the ML model with the SQL data base
-- data: This folder contains sample messages and categories datasets in csv format and Database for the cleaned data.
+
+
 - app: This folder cointains the run.py to iniate the web app.
-
-
-- app
     - template
     - master.html  # main page of web app
     - go.html  # classification result page of web app
     - run.py  # Flask file that runs app
 
-- data
-├── disaster_categories.csv  # data to process 
-├── disaster_messages.csv  # data to process
-├── process_data.py
-└── InsertDatabaseName.db   # database to save clean data to
-
-- models
-├── train_classifier.py
-└── classifier.pkl  # saved model 
+- data: This folder contains sample messages and categories datasets in csv format and Database for the cleaned data.
+    - disaster_categories.csv  # data to process 
+    - disaster_messages.csv  # data to process
+    - process_data.py
+    - InsertDatabaseName.db   # database to save clean data to
 
 - README.md
 
